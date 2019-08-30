@@ -1,0 +1,49 @@
+<h1>Productos</h1>
+
+  <div class="col-md-12 text-right py-4">
+    <button [routerLink]="['/producto','nuevo']"
+            type="button"
+            name="button"
+            class="btn btn-outline-primary">
+            Crear...
+    </button>
+
+  </div>
+<div class="col-md-12 py-2">
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Nombre</th>
+    <th scope="col">Cantidad</th>
+    <th scope="col">Fecha Compra</th>
+    <th scope="col">Precio</th>
+    <th scope="col">Valor Compra</th>
+    <th scope="col">Serial</th>
+    <th scope="col" class="text-right">Opciones</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let item of productos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+    <td>{{item.nombre}}</td>
+    <td>{{item.cantidad}}</td>
+    <td>{{item.fechacompra|date}}</td>
+    <td>{{item.precio |currency:'USD'}}</td>
+    <td>{{item.valor_compra |currency:'USD'}}</td>
+    <td>{{item.serialnb}}</td>
+    <td class="text-right w120">
+                <button [routerLink]="['/producto',item.id]"
+                        type="button"
+                        class="btn btn-success btn-sm">
+                  Editar
+                </button>
+    </td>
+  </tr>
+<tbody>
+</table>
+</div>
+<div class="col-md-12 text-center">
+<ngb-pagination
+  [(page)]="page"
+  [pageSize]="pageSize"
+  [collectionSize]="collectionSize"></ngb-pagination>
+</div>

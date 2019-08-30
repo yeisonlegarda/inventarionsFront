@@ -1,0 +1,180 @@
+<h3 class="py-4">Crear Producto</h3>
+<div class="row py-4">
+  <div class="col-md-12">
+    <form (ngSubmit)="guardar()" #forma="ngForm">
+      <div class="row form-group">
+        <div class="col-md-4">
+          <label>Nombre</label>
+        </div>
+        <div class="col-md-6">
+          <input
+                [(ngModel)]="producto.nombre"
+                type="text"
+                name="nombre"
+                value=""
+                class="form-control"
+                placeholder="Nombre Producto"
+                required>
+        </div>
+
+      </div>
+      <div class="row form-group">
+        <div class="col-md-4">
+          <label>Serial</label>
+        </div>
+        <div class="col-md-6">
+          <input
+                [(ngModel)]="producto.serialnb"
+                type="text"
+                name="serialnb"
+                value=""
+                class="form-control"
+                placeholder="Nombre Producto"
+                required>
+        </div>
+
+    </div>
+    <div class="row form-group">
+      <div class="col-md-4">
+        <label>Cantidad</label>
+      </div>
+      <div class="col-md-6">
+        <input
+              [(ngModel)]="producto.cantidad"
+              type="number"
+              name="cantidad"
+              value=""
+              class="form-control"
+              placeholder="Cantidad"
+              required>
+      </div>
+
+  </div>
+  <div class="row form-group">
+    <div class="col-md-4">
+      <label>Precio</label>
+    </div>
+    <div class="col-md-6">
+      <input
+          [(ngModel)]="producto.precio"
+          type="number"
+          name="precio"
+          value=""
+          class="form-control"
+          placeholder="Precio"
+          required>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-md-4">
+        <label>Fecha Compra</label>
+      </div>
+      <div class="col-md-6">
+        <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="dp" [(ngModel)]="producto.fecha_compra" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
+      </div>
+
+    </div>
+    <div class="row form-group">
+      <div class="col-md-4">
+        <label>Valor Compra</label>
+      </div>
+      <div class="col-md-6">
+        <input
+            [(ngModel)]="producto.valor_compra"
+            type="number"
+            name="valor_compra"
+            value=""
+            class="form-control"
+            placeholder="Valor Compra"
+            required>
+      </div>
+
+      </div>
+      <div class="row form-group">
+        <div class="col-md-4">
+          <label>Tipo</label>
+        </div>
+        <div class="col-md-6">
+          <select [(ngModel)]="producto.tipo"
+                  class="form-control"
+                  name="tipo">
+            <option [value]="tipo.id" *ngFor="let tipo of tipos">{{tipo.nombre}}</option>
+          </select>
+        </div>
+
+      </div>
+      <div class="row form-group">
+        <div class="col-md-4">
+          <label>Estado</label>
+        </div>
+        <div class="col-md-6">
+          <select [(ngModel)]="producto.estado_actual"
+                  class="form-control"
+                  name="tipo">
+            <option [value]="estado.id" *ngFor="let estado of estados">{{estado.nombre}}</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-4">
+          <label>Area asignada</label>
+        </div>
+        <div class="col-md-6">
+          <select [(ngModel)]="producto.responsable"
+                  class="form-control"
+                  name="tipo">
+            <option [value]="area.id" *ngFor="let area of areas">{{area.nombre}}</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-4">
+          <label>Persona asignada</label>
+        </div>
+        <div class="col-md-6">
+          <select [(ngModel)]="producto.responsable"
+                  class="form-control"
+                  name="tipo">
+            <option [value]="persona.id" *ngFor="let persona of personas">{{persona.nombre}}</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="row form-group">
+        <div class="col-md-4">
+          <label>Descripción</label>
+        </div>
+        <div class="col-md-12">
+        <textarea
+              [(ngModel)]="producto.descripcion"
+              type="text"
+              name="descripcion"
+              value=""
+              class="form-control">
+        </textarea>
+      </div>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="!forma.valid"
+                type="submit"
+                class="btn btn-outline-primary">
+          Guardar Cambios
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>
