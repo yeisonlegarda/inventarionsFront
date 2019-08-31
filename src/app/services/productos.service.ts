@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductosService {
 
-  productosURL:string = "http://127.0.0.1:8000/api/v1/productos/";
+  productosURL:string = environment.crudEndpoint+"productos/";
 
   constructor(private http:HttpClient) { }
 

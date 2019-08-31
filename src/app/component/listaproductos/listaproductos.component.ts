@@ -26,7 +26,6 @@ export class ListaproductosComponent implements OnInit {
               private activatedRoute:ActivatedRoute) {
             this.productoService.listproductos()
                 .subscribe(productos=>{
-                          console.log(productos);
                           this.productos=productos;
                           this.collectionSize = this.productos.length;
                           this.loading=false;

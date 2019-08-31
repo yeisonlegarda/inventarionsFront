@@ -26,7 +26,7 @@
   <tr *ngFor="let item of productos | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
     <td>{{item.nombre}}</td>
     <td>{{item.cantidad}}</td>
-    <td>{{item.fechacompra|date}}</td>
+    <td>{{item.fechacompra}}</td>
     <td>{{item.precio |currency:'USD'}}</td>
     <td>{{item.valor_compra |currency:'USD'}}</td>
     <td>{{item.serialnb}}</td>

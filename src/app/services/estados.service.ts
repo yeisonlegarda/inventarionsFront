@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EstadosService {
 
-  estadosURL:string = "http://127.0.0.1:8000/api/v1/estados/";
+  estadosURL:string = environment.crudEndpoint+"estados/";
 
   constructor(private http:HttpClient) { }
 
